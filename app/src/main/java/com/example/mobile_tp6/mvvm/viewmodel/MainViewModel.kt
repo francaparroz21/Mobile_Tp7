@@ -8,14 +8,13 @@ import com.example.mobile_tp6.mvvm.contract.MainContract
 import com.example.mobile_tp6.service.model.Movie
 import com.example.mobile_tp6.util.CoroutineResult
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
     data class MainData(
         val status: MainStatus,
-        val exercises: List<Movie>,
+        val movies: List<Movie>,
     )
 
     enum class MainStatus {

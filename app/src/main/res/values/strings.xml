@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Mobile_Tp6</string>
+    <string name="app_name">Tp_Mobile 6</string>
+    <string name="title">Popular Movies</string>
+    <string name="item_id">ID: %1$s</string>
+    <string name="item_title">TITLE: %1$s</string>
+    <string name="item_date">DATE: %1$s</string>
+    <string name="image_content_description">Content description</string>
+    <string name="popular_movies">Popular Movies</string>
 </resources>

@@ -10,11 +10,12 @@ fun Movie.mapToDataBaseMovie(): MovieEntity = MovieEntity(
     release_date = release_date
 )
 
-fun List<MovieEntity>.mapToLocalMovie(): List<Movie> = map { entity ->
-    Movie(
-        id = entity.id,
-        title = entity.title,
-        poster_path = entity.poster_path,
-        release_date = entity.release_date
-    )
-}
+fun List<MovieEntity>.mapToLocalMovie(): List<Movie> =
+    map { entity ->
+        Movie(
+            id = entity.id,
+            title = entity.title,
+            poster_path = entity.poster_path,
+            release_date = entity.release_date
+        )
+    }

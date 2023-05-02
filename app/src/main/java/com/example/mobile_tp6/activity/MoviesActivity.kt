@@ -1,6 +1,8 @@
 package com.example.mobile_tp6.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +11,7 @@ import com.example.mobile_tp6.adapter.MovieAdapter
 import com.example.mobile_tp6.database.MovieDatabaseImplementation
 import com.example.mobile_tp6.database.MoviesRoomDatabase
 import com.example.mobile_tp6.databinding.ActivityMainBinding
+import com.example.mobile_tp6.databinding.ActivityMoviesBinding
 import com.example.mobile_tp6.mvvm.contract.MainContract
 import com.example.mobile_tp6.mvvm.model.MainModel
 import com.example.mobile_tp6.mvvm.viewmodel.MainViewModel
@@ -18,12 +21,19 @@ import com.example.mobile_tp6.service.MovieRequestGenerator
 import com.example.mobile_tp6.service.MovieServiceImplementation
 
 class MoviesActivity:AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMoviesBinding
     private lateinit var viewModel: MainContract.ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = Intent(this,MainActivity::class.java)
+        with(binding.buttonBackToMain){
+            setOnClickListener{
+                startActivity(intent)
+            }
+        }
 
         val db: MoviesRoomDatabase by lazy {
             Room

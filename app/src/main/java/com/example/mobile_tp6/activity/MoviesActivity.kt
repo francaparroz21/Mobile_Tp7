@@ -1,7 +1,7 @@
 package com.example.mobile_tp6.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -17,7 +17,7 @@ import com.example.mobile_tp6.service.MovieClient
 import com.example.mobile_tp6.service.MovieRequestGenerator
 import com.example.mobile_tp6.service.MovieServiceImplementation
 
-class MainActivity : AppCompatActivity() {
+class MoviesActivity:AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainContract.ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {

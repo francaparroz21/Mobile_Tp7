@@ -6,4 +6,6 @@
     <string name="item_date">DATE: %1$s</string>
     <string name="image_content_description">Content description</string>
     <string name="popular_movies">Popular Movies</string>
+    <string name="title_tp6">TP Mobile 6</string>
+    <string name="button_show_movies">SHOW</string>
 </resources>

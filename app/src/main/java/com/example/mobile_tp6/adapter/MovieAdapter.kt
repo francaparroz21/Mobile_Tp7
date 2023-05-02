@@ -1,5 +1,6 @@
 package com.example.mobile_tp6.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -24,15 +25,15 @@ class MovieAdapter (private val movies: List<Movie>): RecyclerView.Adapter<Movie
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapter.ViewHolder {
-        TODO("Not yet implemented")
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recycler,parent,false))
     }
 
     override fun onBindViewHolder(holder: MovieAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(movies[position])
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return movies.size
     }
 
 

@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
     data class MainData(
-        val status: MainStatus,
+        var status: MainStatus,
         val movies: List<Movie>,
     )
 
@@ -32,8 +32,7 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
                     mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                 }
                 is CoroutineResult.Failure -> {
-                    //val list : List<Movie> = listOf()
-                    //mutableLiveData.value = MainData(MainStatus.HIDE_INFO, list)
+                    mutableLiveData.value?.status ?: MainStatus.HIDE_INFO
                 }
             }
         }

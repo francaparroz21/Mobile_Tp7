@@ -70,6 +70,7 @@ class MoviesActivity : AppCompatActivity() {
                 }
             }
             MainViewModel.MainStatus.HIDE_INFO -> {
+                binding.failure.isVisible = true
             }
         }
     }

@@ -1,5 +1,4 @@
 package com.example.mobile_tp6.database
-
 import com.example.mobile_tp6.database.dao.MovieDao
 import com.example.mobile_tp6.database.mapper.mapToDataBaseMovie
 import com.example.mobile_tp6.database.mapper.mapToLocalMovie

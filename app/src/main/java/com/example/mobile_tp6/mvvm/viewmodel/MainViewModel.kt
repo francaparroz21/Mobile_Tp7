@@ -32,7 +32,8 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
                     mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                 }
                 is CoroutineResult.Failure -> {
-
+                    //val list : List<Movie> = listOf()
+                    //mutableLiveData.value = MainData(MainStatus.HIDE_INFO, list)
                 }
             }
         }

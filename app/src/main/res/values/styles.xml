@@ -15,6 +15,7 @@
     </style>
 
     <style name="image_style">
+        <item name="android:layout_width">@dimen/image_width</item>
         <item name="android:layout_marginTop">@dimen/image_margin_top</item>
     </style>
 

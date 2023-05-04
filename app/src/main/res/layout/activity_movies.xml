@@ -7,6 +7,18 @@
     android:layout_margin="@dimen/container_margin"
     tools:context=".activity.MainActivity">
 
+    <TextView
+        android:id="@+id/failure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/failure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
     <Button
         android:id="@+id/button_back_to_main"
         android:layout_width="wrap_content"
@@ -14,15 +26,14 @@
         android:layout_marginBottom="4dp"
         android:text="@string/button_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recycler"
-        app:layout_constraintEnd_toStartOf="@id/title" />
+        app:layout_constraintEnd_toStartOf="@id/title"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/popular_movies"
-        app:layout_constraintBottom_toTopOf="@id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_back_to_main"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,6 +44,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/container_margin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:layout_editor_absoluteX="0dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

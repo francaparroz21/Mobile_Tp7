@@ -21,7 +21,7 @@ class MovieAdapter(private val movies: List<Movie>) :
             binding.date.text = itemView.context.getString(R.string.item_date, movie.release_date)
 
             Glide.with(itemView.context)
-                .load("https://image.tmdb.org/t/p/original$movie.poster_path")
+                .load(itemView.context.getString(R.string.item_image,movie.poster_path))
                 .into(binding.image)
         }
     }

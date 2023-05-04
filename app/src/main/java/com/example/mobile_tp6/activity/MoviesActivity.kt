@@ -3,7 +3,9 @@ package com.example.mobile_tp6.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -20,7 +22,7 @@ import com.example.mobile_tp6.service.MovieClient
 import com.example.mobile_tp6.service.MovieRequestGenerator
 import com.example.mobile_tp6.service.MovieServiceImplementation
 
-class MoviesActivity:AppCompatActivity() {
+class MoviesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMoviesBinding
     private lateinit var viewModel: MainContract.ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +30,11 @@ class MoviesActivity:AppCompatActivity() {
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(this,MainActivity::class.java)
-        with(binding.buttonBackToMain){
-            setOnClickListener{
+        val intent = Intent(this, MainActivity::class.java)
+        with(binding.buttonBackToMain) {
+            setOnClickListener {
                 startActivity(intent)
+                finish()
             }
         }
 
@@ -52,16 +55,22 @@ class MoviesActivity:AppCompatActivity() {
             ),
         )[MainViewModel::class.java]
 
-        viewModel.getValueViewModel().observe(this){updateUI(it)}
+        viewModel.getValueViewModel().observe(this) { updateUI(it) }
     }
 
-    private fun updateUI(data: MainViewModel.MainData){
-        when(data.status){
-            MainViewModel.MainStatus.SHOW_INFO->{
-                binding.recycler.layoutManager = LinearLayoutManager(this)
-                binding.recycler.adapter = MovieAdapter(data.movies)
+    private fun updateUI(data: MainViewModel.MainData) {
+        when (data.status) {
+            MainViewModel.MainStatus.SHOW_INFO -> {
+                if (data.movies.isEmpty()) {
+                    binding.recycler.isVisible = false
+                    binding.failure.isVisible = true
+                } else {
+                    binding.recycler.layoutManager = LinearLayoutManager(this)
+                    binding.recycler.adapter = MovieAdapter(data.movies)
+                }
             }
-            MainViewModel.MainStatus.HIDE_INFO->{}
+            MainViewModel.MainStatus.HIDE_INFO -> {
+            }
         }
     }
 

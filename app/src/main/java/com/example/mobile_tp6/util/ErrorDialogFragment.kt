@@ -10,9 +10,13 @@ import com.example.mobile_tp6.R
 import com.example.mobile_tp6.activity.MainActivity
 
 class ErrorDialogFragment : DialogFragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        showsDialog = true
+    }
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            // Use the Builder class for convenient dialog construction
             val builder = AlertDialog.Builder(it)
             builder.setMessage(R.string.error_dialog)
                 .setPositiveButton(R.string.ok,

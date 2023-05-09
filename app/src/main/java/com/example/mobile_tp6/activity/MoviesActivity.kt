@@ -73,6 +73,10 @@ class MoviesActivity : AppCompatActivity() {
             MainViewModel.MainStatus.ERROR -> ErrorDialogFragment()
         }
     }
+    fun showDialog(){
+        val dialog = ErrorDialogFragment()
+        dialog.show()
+    }
 
     override fun onResume() {
         super.onResume()

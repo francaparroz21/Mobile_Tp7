@@ -11,4 +11,7 @@
     <string name="button_show_movies">SHOW</string>
     <string name="button_back">BACK</string>
     <string name="failure">Error, try again.</string>
+    <string name="error_dialog">Error dialog, try again.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
 </resources>

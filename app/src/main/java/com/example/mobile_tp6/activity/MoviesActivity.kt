@@ -21,6 +21,7 @@ import com.example.mobile_tp6.mvvm.viewmodel.factory.ViewModelFactory
 import com.example.mobile_tp6.service.MovieClient
 import com.example.mobile_tp6.service.MovieRequestGenerator
 import com.example.mobile_tp6.service.MovieServiceImplementation
+import com.example.mobile_tp6.util.ErrorDialogFragment
 
 class MoviesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMoviesBinding
@@ -69,9 +70,7 @@ class MoviesActivity : AppCompatActivity() {
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
             }
-            MainViewModel.MainStatus.HIDE_INFO -> {
-                binding.failure.isVisible = true
-            }
+            MainViewModel.MainStatus.ERROR -> ErrorDialogFragment()
         }
     }
 

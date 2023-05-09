@@ -14,12 +14,13 @@ import kotlinx.coroutines.withContext
 class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
     data class MainData(
         var status: MainStatus,
-        val movies: List<Movie>,
+        val movies: List<Movie> = listOf(),
+        var exception: Exception? = null
     )
 
     enum class MainStatus {
         SHOW_INFO,
-        HIDE_INFO
+        ERROR
     }
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
@@ -32,7 +33,7 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
                     mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                 }
                 is CoroutineResult.Failure -> {
-                    mutableLiveData.value?.status ?: MainStatus.HIDE_INFO
+                    mutableLiveData.value = MainData(MainStatus.ERROR, exception = result.exception)
                 }
             }
         }

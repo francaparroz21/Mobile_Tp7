@@ -70,12 +70,13 @@ class MoviesActivity : AppCompatActivity() {
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
             }
-            MainViewModel.MainStatus.ERROR -> ErrorDialogFragment()
+            MainViewModel.MainStatus.ERROR -> showDialog()
         }
     }
-    fun showDialog(){
+
+    fun showDialog() {
         val dialog = ErrorDialogFragment()
-        dialog.show()
+        dialog.show(supportFragmentManager, "dialog")
     }
 
     override fun onResume() {

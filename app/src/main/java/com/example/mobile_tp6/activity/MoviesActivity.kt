@@ -2,8 +2,6 @@ package com.example.mobile_tp6.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -32,12 +30,18 @@ class MoviesActivity : AppCompatActivity() {
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(this, MainActivity::class.java)
-        with(binding.buttonBackToMain) {
-            setOnClickListener {
-                startActivity(intent)
-                finish()
-            }
+        //Test error dialog
+        binding.failure.setOnClickListener {
+            ErrorDialogFragment.newInstance(
+                getString(R.string.title_dialog),
+                getString(R.string.description_dialog)
+            ).show(supportFragmentManager, getString(R.string.error_dialog))
+        }
+
+        binding.buttonBackToMain.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val db: MoviesRoomDatabase by lazy {
@@ -66,6 +70,7 @@ class MoviesActivity : AppCompatActivity() {
                 if (data.movies.isEmpty()) {
                     binding.recycler.isVisible = false
                     binding.errorEmptyState.isVisible = true
+                    binding.failure.isVisible = true
                 } else {
                     binding.recycler.layoutManager = LinearLayoutManager(this)
                     binding.recycler.adapter = MovieAdapter(data.movies)
@@ -74,7 +79,7 @@ class MoviesActivity : AppCompatActivity() {
             MainViewModel.MainStatus.ERROR -> ErrorDialogFragment.newInstance(
                 getString(R.string.title_dialog),
                 getString(R.string.description_dialog)
-            ).show(supportFragmentManager,getString(R.string.error_dialog))
+            ).show(supportFragmentManager, getString(R.string.error_dialog))
         }
     }
 

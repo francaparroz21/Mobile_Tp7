@@ -48,4 +48,8 @@
         <item name="android:textColor">@color/red</item>
     </style>
 
+    <style name="button_test_error_dialog">
+        <item name="android:backgroundTint">@color/red</item>
+    </style>
+
 </resources>

@@ -22,6 +22,19 @@
         />
 
     <Button
+        android:id="@+id/failure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_empty_state"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/test_error_dialog"
+        android:visibility="invisible"
+        style="@style/button_test_error_dialog"
+        />
+
+    <Button
         android:id="@+id/button_back_to_main"
         style="@style/button_back_to_main"
         android:layout_width="wrap_content"
@@ -30,8 +43,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="0dp" />
+
+        />
 
     <TextView
         android:id="@+id/title"

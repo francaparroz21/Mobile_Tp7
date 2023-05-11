@@ -17,4 +17,5 @@
     <string name="title_dialog">Error</string>
     <string name="description_dialog">An error occurred in database</string>
     <string name="button_dialog">OK</string>
+    <string name="test_error_dialog">Test error dialog</string>
 </resources>

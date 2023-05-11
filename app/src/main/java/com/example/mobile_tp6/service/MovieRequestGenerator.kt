@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object MovieRequestGenerator {
     private const val API_MOVIES_URL = "https://api.themoviedb.org/3/"
 
-
     private val httpClient = OkHttpClient.Builder()
 
     private val builder = Retrofit.Builder()
@@ -19,8 +18,12 @@ object MovieRequestGenerator {
 
 
     fun <S> createService(serviceClass: Class<S>): S {
-        val retrofit = builder.client(httpClient.build()).build()
-        return retrofit.create(serviceClass)
+        try {
+            val retrofit = builder.client(httpClient.build()).build()
+            return retrofit.create(serviceClass)
+        }catch (e:Exception){
+            throw RuntimeException("Fail in Retrofit service.")
+        }
     }
 
 }

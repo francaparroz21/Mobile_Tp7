@@ -11,7 +11,10 @@
     <string name="button_show_movies">SHOW</string>
     <string name="button_back">BACK</string>
     <string name="failure">Error, try again.</string>
-    <string name="error_dialog">Error dialog, try again.</string>
+    <string name="error_dialog">Error database.</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
+    <string name="title_dialog">Error</string>
+    <string name="description_dialog">An error occurred in database</string>
+    <string name="button_dialog">OK</string>
 </resources>

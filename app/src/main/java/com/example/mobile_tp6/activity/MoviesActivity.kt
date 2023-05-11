@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
+import com.example.mobile_tp6.R
 import com.example.mobile_tp6.adapter.MovieAdapter
 import com.example.mobile_tp6.database.MovieDatabaseImplementation
 import com.example.mobile_tp6.database.MoviesRoomDatabase
@@ -70,13 +71,11 @@ class MoviesActivity : AppCompatActivity() {
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
             }
-            MainViewModel.MainStatus.ERROR -> showDialog()
+            MainViewModel.MainStatus.ERROR -> ErrorDialogFragment.newInstance(
+                getString(R.string.title_dialog),
+                getString(R.string.description_dialog)
+            ).show(supportFragmentManager,getString(R.string.error_dialog))
         }
-    }
-
-    fun showDialog() {
-        val dialog = ErrorDialogFragment()
-        dialog.show(supportFragmentManager, "dialog")
     }
 
     override fun onResume() {

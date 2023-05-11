@@ -8,8 +8,8 @@
     <string name="image_content_description">Content description</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="title_tp6">TP Mobile 6</string>
-    <string name="button_show_movies">SHOW</string>
-    <string name="button_back">BACK</string>
+    <string name="button_show_movies">Show movies</string>
+    <string name="button_back">Back to main</string>
     <string name="failure">Error, try again.</string>
     <string name="error_dialog">Error database.</string>
     <string name="cancel">Cancel</string>

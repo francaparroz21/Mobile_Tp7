@@ -65,7 +65,7 @@ class MoviesActivity : AppCompatActivity() {
             MainViewModel.MainStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()) {
                     binding.recycler.isVisible = false
-                    binding.failure.isVisible = true
+                    binding.errorEmptyState.isVisible = true
                 } else {
                     binding.recycler.layoutManager = LinearLayoutManager(this)
                     binding.recycler.adapter = MovieAdapter(data.movies)

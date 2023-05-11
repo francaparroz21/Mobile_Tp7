@@ -59,7 +59,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Error viewmodel status works`(){
+    fun `Error view-model status works`(){
         coEvery { model.getPopularMovies() }returns CoroutineResult.Failure(Exception())
 
         runBlocking { viewModel.callService().join() }

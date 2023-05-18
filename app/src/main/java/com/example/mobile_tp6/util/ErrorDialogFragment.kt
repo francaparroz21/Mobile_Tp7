@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.mobile_tp6.R
-import com.example.mobile_tp6.activity.MainActivity
+import com.example.mobile_tp6.presentation.activity.MainActivity
 import com.example.mobile_tp6.databinding.FragmentDialogBinding
 
 class ErrorDialogFragment : DialogFragment() {

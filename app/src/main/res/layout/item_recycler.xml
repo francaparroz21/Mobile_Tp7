@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/container_margin"
     android:background="@android:color/darker_gray"
     android:elevation="@dimen/elevation"
-    tools:context=".activity.MoviesActivity"
+    tools:context=".presentation.activity.MoviesActivity"
     style="@style/item_container_styles"
     >
 

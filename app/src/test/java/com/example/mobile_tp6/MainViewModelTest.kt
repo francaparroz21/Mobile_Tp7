@@ -1,8 +1,8 @@
 package com.example.mobile_tp6
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.mobile_tp6.mvvm.contract.MainContract
-import com.example.mobile_tp6.mvvm.viewmodel.MainViewModel
-import com.example.mobile_tp6.service.model.Movie
+import com.example.mobile_tp6.presentation.mvvm.contract.MainContract
+import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
+import com.example.mobile_tp6.data.service.model.Movie
 import com.example.mobile_tp6.util.CoroutineResult
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

@@ -1,4 +1,4 @@
-package com.example.mobile_tp6.data.database.entity
+package com.example.mobile_tp6.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -4,29 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.mobile_tp6.R
 import com.example.mobile_tp6.presentation.adapter.MovieAdapter
-import com.example.mobile_tp6.data.database.MovieDatabaseImplementation
 import com.example.mobile_tp6.data.database.MoviesRoomDatabase
-import com.example.mobile_tp6.databinding.ActivityMainBinding
 import com.example.mobile_tp6.databinding.ActivityMoviesBinding
 import com.example.mobile_tp6.presentation.mvvm.contract.MainContract
-import com.example.mobile_tp6.presentation.mvvm.model.MainModel
 import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.mobile_tp6.presentation.mvvm.viewmodel.factory.ViewModelFactory
-import com.example.mobile_tp6.data.service.MovieClient
-import com.example.mobile_tp6.data.service.MovieRequestGenerator
-import com.example.mobile_tp6.data.service.MovieServiceImplementation
-import com.example.mobile_tp6.util.ErrorDialogFragment
+import com.example.mobile_tp6.util.dialogs.ErrorDialogFragment
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class MoviesActivity : AppCompatActivity(), KoinComponent {
     private lateinit var binding: ActivityMoviesBinding
-    private var viewModel: MainContract.ViewModel by inject()
+    private val viewModel: MainContract.ViewModel by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMoviesBinding.inflate(layoutInflater)
@@ -51,18 +43,8 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
                 .databaseBuilder(this, MoviesRoomDatabase::class.java, "Movie-DB")
                 .build()
         }
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(
-                arrayOf(
-                    MainModel(
-                        MovieServiceImplementation(MovieRequestGenerator.createService(MovieClient::class.java)),
-                        MovieDatabaseImplementation(db.movieDao())
-                    ),
-                ),
-            ),
-        )[MainViewModel::class.java]
 
+        viewModel.callService()
         viewModel.getValueViewModel().observe(this) { updateUI(it) }
     }
 

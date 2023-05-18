@@ -18,7 +18,7 @@ import org.koin.core.component.inject
 
 class MoviesActivity : AppCompatActivity(), KoinComponent {
     private lateinit var binding: ActivityMoviesBinding
-    private val viewModel: MainContract.ViewModel by inject()
+    private val viewModel: MainViewModel by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMoviesBinding.inflate(layoutInflater)
@@ -36,12 +36,6 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }
-
-        val db: MoviesRoomDatabase by lazy {
-            Room
-                .databaseBuilder(this, MoviesRoomDatabase::class.java, "Movie-DB")
-                .build()
         }
 
         viewModel.callService()

@@ -49,7 +49,7 @@ class GetMoviesUseCaseImplementationTest {
     }
 
     @Test
-    fun `when use case return failure but the database is not empty`() {
+    fun `when use case return failure`() {
         coEvery { movieService.getMovies() } returns CoroutineResult.Failure(Exception())
         coEvery { db.getAllMovies() } returns CoroutineResult.Success(movieList)
 
@@ -61,7 +61,7 @@ class GetMoviesUseCaseImplementationTest {
     }
 
     @Test
-    fun `when use case return failure and the database is empty`() {
+    fun `when use case return failure and there is nothing in the database`() {
         coEvery { movieService.getMovies() } returns CoroutineResult.Failure(Exception())
         coEvery { db.getAllMovies() } returns CoroutineResult.Failure(Exception())
 

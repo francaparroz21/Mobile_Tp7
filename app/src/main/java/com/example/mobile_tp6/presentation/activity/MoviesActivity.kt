@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobile_tp6.R
 import com.example.mobile_tp6.presentation.adapter.MovieAdapter
 import com.example.mobile_tp6.databinding.ActivityMoviesBinding
-import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.mobile_tp6.util.dialogs.ErrorDialogFragment
+import com.example.mobile_tp6.presentation.mvvm.viewmodel.MovieViewModel
+import com.example.mobile_tp6.presentation.dialogs.ErrorDialogFragment
 import org.koin.core.component.KoinComponent
 import org.koin.android.ext.android.inject
 
 class MoviesActivity : AppCompatActivity(), KoinComponent {
     private lateinit var binding: ActivityMoviesBinding
-    private val viewModel: MainViewModel by inject()
+    private val viewModel: MovieViewModel by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMoviesBinding.inflate(layoutInflater)
@@ -38,9 +38,9 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
         viewModel.getValueViewModel().observe(this) { updateUI(it) }
     }
 
-    private fun updateUI(data: MainViewModel.MainData) {
+    private fun updateUI(data: MovieViewModel.MovieData) {
         when (data.status) {
-            MainViewModel.MainStatus.SHOW_INFO -> {
+            MovieViewModel.MovieStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()) {
                     binding.recycler.isVisible = false
                     binding.errorEmptyState.isVisible = true
@@ -50,7 +50,7 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
             }
-            MainViewModel.MainStatus.ERROR -> ErrorDialogFragment.newInstance(
+            MovieViewModel.MovieStatus.ERROR -> ErrorDialogFragment.newInstance(
                 getString(R.string.title_dialog),
                 getString(R.string.description_dialog)
             ).show(supportFragmentManager, getString(R.string.error_dialog))

@@ -5,7 +5,7 @@ import com.example.mobile_tp6.domain.entity.Movie
 import com.example.mobile_tp6.domain.service.MovieService
 import com.example.mobile_tp6.domain.usecase.GetMoviesUseCase
 import com.example.mobile_tp6.domain.usecase.GetMoviesUseCaseImplementation
-import com.example.mobile_tp6.util.CoroutineResult
+import com.example.mobile_tp6.domain.util.CoroutineResult
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

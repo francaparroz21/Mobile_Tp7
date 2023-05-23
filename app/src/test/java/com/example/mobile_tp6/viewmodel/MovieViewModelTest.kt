@@ -2,9 +2,9 @@ package com.pil.movieApp.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.mobile_tp6.domain.entity.Movie
-import com.example.mobile_tp6.presentation.mvvm.model.MainModel
-import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.mobile_tp6.util.CoroutineResult
+import com.example.mobile_tp6.presentation.mvvm.model.MovieModel
+import com.example.mobile_tp6.presentation.mvvm.viewmodel.MovieViewModel
+import com.example.mobile_tp6.domain.util.CoroutineResult
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.Dispatchers
@@ -20,15 +20,15 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 
-class MainViewModelTest {
+class MovieViewModelTest {
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MovieViewModel
 
     @MockK
-    private lateinit var model: MainModel
+    private lateinit var model: MovieModel
 
     @MockK
     private lateinit var movieList: List<Movie>
@@ -39,7 +39,7 @@ class MainViewModelTest {
     fun setup() {
         Dispatchers.setMain(UnconfinedTestDispatcher())
         MockKAnnotations.init(this, relaxUnitFun = true)
-        viewModel = MainViewModel(model)
+        viewModel = MovieViewModel(model)
     }
 
 
@@ -56,7 +56,7 @@ class MainViewModelTest {
         runBlocking { viewModel.callService().join() }
 
         assertEquals(movieList, viewModel.getValueViewModel().value?.movies)
-        assertEquals(MainViewModel.MainStatus.SHOW_INFO, viewModel.getValueViewModel().value?.status)
+        assertEquals(MovieViewModel.MovieStatus.SHOW_INFO, viewModel.getValueViewModel().value?.status)
     }
 
     @Test
@@ -65,7 +65,7 @@ class MainViewModelTest {
 
         runBlocking { viewModel.callService().join() }
 
-        assertEquals(MainViewModel.MainStatus.ERROR, viewModel.getValueViewModel().value?.status)
+        assertEquals(MovieViewModel.MovieStatus.ERROR, viewModel.getValueViewModel().value?.status)
     }
 
 

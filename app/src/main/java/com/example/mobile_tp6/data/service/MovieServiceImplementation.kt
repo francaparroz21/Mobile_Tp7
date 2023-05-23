@@ -3,7 +3,7 @@ package com.example.mobile_tp6.data.service
 import com.example.mobile_tp6.data.database.transformToList
 import com.example.mobile_tp6.domain.service.MovieService
 import com.example.mobile_tp6.domain.entity.Movie
-import com.example.mobile_tp6.util.CoroutineResult
+import com.example.mobile_tp6.domain.util.CoroutineResult
 
 class MovieServiceImplementation(private val requestGenerator: MovieRequestGenerator): MovieService{
     override suspend fun getMovies(): CoroutineResult<List<Movie>> {

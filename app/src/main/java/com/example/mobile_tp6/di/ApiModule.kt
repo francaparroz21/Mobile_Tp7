@@ -4,6 +4,6 @@ import org.koin.dsl.module
 
 object ApiModule {
     val apiModule = module {
-        factory { MovieRequestGenerator() }
+        factory { MovieRequestGenerator }
     }
 }

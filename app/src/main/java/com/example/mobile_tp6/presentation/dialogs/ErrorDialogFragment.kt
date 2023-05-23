@@ -1,4 +1,4 @@
-package com.example.mobile_tp6.util.dialogs
+package com.example.mobile_tp6.presentation.dialogs
 
 import android.content.Intent
 import android.os.Bundle

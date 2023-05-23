@@ -13,7 +13,7 @@ class GetMoviesUseCaseImplementation(
     private val service: MovieService,
     private val database: MovieDatabase
 ) : GetMoviesUseCase {
-    override suspend fun invoke(): CoroutineResult<List<Movie>> {
+    override suspend operator fun invoke(): CoroutineResult<List<Movie>> {
         return when (val movies = service.getMovies()) {
             is CoroutineResult.Success -> {
                 database.insertMovies(movies.data)

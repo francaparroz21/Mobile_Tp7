@@ -11,7 +11,7 @@ import com.example.mobile_tp6.databinding.ActivityMoviesBinding
 import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
 import com.example.mobile_tp6.util.dialogs.ErrorDialogFragment
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import org.koin.android.ext.android.inject
 
 class MoviesActivity : AppCompatActivity(), KoinComponent {
     private lateinit var binding: ActivityMoviesBinding

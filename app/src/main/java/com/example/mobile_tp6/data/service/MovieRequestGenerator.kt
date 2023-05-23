@@ -16,7 +16,6 @@ class MovieRequestGenerator {
         .baseUrl(API_MOVIES_URL)
         .addConverterFactory(GsonConverterFactory.create())
 
-
     fun <S> createService(serviceClass: Class<S>): S {
         try {
             val retrofit = builder.client(httpClient.build()).build()

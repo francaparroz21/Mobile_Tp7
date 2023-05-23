@@ -5,5 +5,5 @@ data class MovieList(
     @SerializedName("page")
     var page: Int,
     @SerializedName("results")
-    var results: List<Movie>
+    val results: MutableList<Movie>
 )

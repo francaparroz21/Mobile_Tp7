@@ -5,12 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.example.mobile_tp6.R
 import com.example.mobile_tp6.presentation.adapter.MovieAdapter
-import com.example.mobile_tp6.data.database.MoviesRoomDatabase
 import com.example.mobile_tp6.databinding.ActivityMoviesBinding
-import com.example.mobile_tp6.presentation.mvvm.contract.MainContract
 import com.example.mobile_tp6.presentation.mvvm.viewmodel.MainViewModel
 import com.example.mobile_tp6.util.dialogs.ErrorDialogFragment
 import org.koin.core.component.KoinComponent
@@ -24,7 +21,6 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Test error dialog
         binding.failure.setOnClickListener {
             ErrorDialogFragment.newInstance(
                 getString(R.string.title_dialog),

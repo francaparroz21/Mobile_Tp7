@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mobile_tp6.R
 import com.example.mobile_tp6.databinding.ItemRecyclerBinding
-import com.example.mobile_tp6.data.service.model.Movie
+import com.example.mobile_tp6.domain.entity.Movie
 
 class MovieAdapter(private val movies: List<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {

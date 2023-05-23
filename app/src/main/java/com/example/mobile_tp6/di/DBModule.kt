@@ -7,7 +7,7 @@ import org.koin.dsl.module
 object DBModule {
     private const val db = "MovieDatabase"
 
-    val module = module {
+    val dbModule = module {
         single { Room.databaseBuilder(get(), MoviesRoomDatabase::class.java, db).build() }
         single { get<MoviesRoomDatabase>().movieDao() }
     }
